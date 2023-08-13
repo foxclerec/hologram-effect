@@ -142,8 +142,8 @@ b {
     transparent 4px
   );
   animation: hologramEffect 1.5s infinite alternate;
-  mask-image: url("./images/starship-mask.png");
-  -webkit-mask-image: url("./images/starship-mask.png");
+  mask-image: url("../images/starship-mask.png");
+  -webkit-mask-image: url("../images/starship-mask.png");
   mask-size: cover;
   -webkit-mask-size: cover;
   mask-repeat: no-repeat;
