@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600&display=swap");
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+
+  font-family: "Exo 2", sans-serif;
+  font-weight: 300;
+}
+
+body::after,
+body::before {
+  content: "";
+  background: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: radial-gradient(
+      2px 2px at 20px 30px,
+      #fff,
+      rgba(255, 255, 255, 0)
+    ),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 50px 160px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 430px 90px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(3px 3px at 530px 70px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 1100px 140px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 1400px 450px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 930px 80px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 230px 450px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 1230px 400px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(3px 3px at 200px 200px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 970px 180px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 350px 650px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 340px 300px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 1160px 470px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(1px 1px at 860px 670px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(2px 2px at 1160px 570px, #fff, rgba(255, 255, 255, 0)),
+    radial-gradient(3px 3px at 1360px 70px, #fff, rgba(255, 255, 255, 0)),
+    linear-gradient(#030316, #030316);
+}
+
+body::before {
+  transform: translate(50px, 50px);
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 1.75rem;
+  color: #f0f0f0;
+
+  margin-bottom: 1.75rem;
+}
+
+.main-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .main-container {
+    flex-direction: row;
+  }
+}
+
+.ship-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .ship-details {
+    align-items: flex-start;
+  }
+}
+
+.specification {
+  margin-bottom: 0.75rem;
+}
+
+b {
+  padding-right: 0.75rem;
+  font-weight: 400;
+  color: #45a1de;
+}
+
+.hologram-wrapper {
+  position: relative;
+  max-width: 494px;
+  height: auto;
+  overflow: hidden;
+  border: 2px solid #151d36;
+  border-radius: 4px;
+}
+
+@media (max-width: 959px) {
+  .hologram-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.hologram-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.hologram-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: repeating-radial-gradient(
+    circle at 2px 2px,
+    rgba(55, 162, 255, 0.737),
+    rgba(32, 144, 255, 0.563) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  animation: hologramEffect 1.5s infinite alternate;
+  mask-image: url("./images/starship-mask.png");
+  -webkit-mask-image: url("./images/starship-mask.png");
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+}
+
+.hologram-wrapper::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  z-index: 4;
+  background: linear-gradient(
+    0deg,
+    transparent,
+    rgba(131, 220, 250, 0.1),
+    transparent
+  );
+  animation: movingStripeEffect 6s infinite;
+}
+
+@keyframes movingStripeEffect {
+  0%,
+  100% {
+    top: -20px;
+  }
+  50% {
+    top: calc(100% - 20px);
+  }
+}
+
+@keyframes hologramEffect {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
